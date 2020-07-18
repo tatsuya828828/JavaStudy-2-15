@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ja"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>BankTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">BankTest (2020/07/18 11:04:48)</a> &gt; <a href="../../index.html" class="el_group">JavaStudy-2-15</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">BankTest.java</span></div><h1>BankTest.java</h1><pre class="source lang-java linenums">import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+<span class="fc" id="L5">public class BankTest {</span>
+	// 正常に動作するか調べる
+	@Test public void setNameTest() {
+<span class="fc" id="L8">		Bank bank = new Bank();</span>
+<span class="fc" id="L9">		bank.setName(&quot;たかし&quot;);</span>
+<span class="fc" id="L10">	}</span>
+
+	// nullをセットしたときに例外が起きるか調べる
+	@Test public void setNameWithNull() {
+		try {
+<span class="fc" id="L15">			Bank bank = new Bank();</span>
+<span class="nc" id="L16">			bank.setName(null);</span>
+<span class="pc" id="L17">		} catch(NullPointerException e) {</span>
+<span class="fc" id="L18">			return;</span>
+		}
+<span class="nc" id="L20">		fail();</span>
+<span class="nc" id="L21">	}</span>
+
+	// 2文字をセットしようとしたときに例外が起こるかを調べる
+	@Test(expected = IllegalArgumentException.class)
+	public void throwsExceptionWithTwoCharName() {
+<span class="fc" id="L26">		Bank bank = new Bank();</span>
+<span class="nc" id="L27">		bank.setName(&quot;くま&quot;);</span>
+<span class="nc" id="L28">	}</span>
+}
+
+// 目に見えずに把握しにくい品質など、開発に関する把握しにくい様々な事柄を、主に数値指標として見えるようにしたものを
+// メトリクスと呼ぶ。また、テストによるカバー率もテストカバレッジまたは網羅率と呼ばれるメトリクスの一種である
+// 理想としては、カバー率100%wを目指すことが望ましいが機械的に計測することが難しいため、この方法はあまり用いられていない
+// その代わりにコードカバレッジというものがよく用いられている。
+// 代表的なものとして、命令網羅率(C0レベルカバレッジ)と分岐網羅率(C1レベルカバレッジ)がよく知られている
+// 命令網羅率はセミコロンで終わる命令文だけを数える、条件分岐のためのif文やwhile文などは無視して構わない
+// コードカバレッジを計測してくれるツールは複数存在するが、その中の一つにCoberturaがある
+// Coberturaを使うHTMLファイルを出力しブラウザでカバレッジレポートを見ることができる
+// また、eclipseではカバレッジの欄を右クリックしてセッションのエクスポートを選ぶことでもHTMLに出力することができる
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>BankTest (2020/07/18 11:04:48)</div></body></html>

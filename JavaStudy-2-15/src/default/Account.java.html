@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ja"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Account.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">BankTest (2020/07/18 11:04:48)</a> &gt; <a href="../../index.html" class="el_group">JavaStudy-2-15</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Account.java</span></div><h1>Account.java</h1><pre class="source lang-java linenums">
+public class Account {
+	String owner;
+	int balance;
+
+<span class="nc" id="L6">	public Account(String owner, int balance) {</span>
+<span class="nc" id="L7">		this.owner = owner;</span>
+<span class="nc" id="L8">		this.balance = balance;</span>
+<span class="nc" id="L9">	}</span>
+
+	public void trancefer(Account dest, int amount) {
+<span class="nc" id="L12">		dest.balance += amount;</span>
+<span class="nc" id="L13">		balance -= amount;</span>
+<span class="nc" id="L14">	}</span>
+
+
+	public void transfer(Account dest, int amount) {
+		// 送金処理の記述が書いてあると仮定(残高不足の場合は例外を早出)
+<span class="nc" id="L19">		System.out.println(&quot;送金完了しました&quot;);</span>
+		// 本来は、テストクラスを作る方が良いのだが
+		// 稼働クラスを作りながらテストクラスも並行して作っていく方が、品質の良いテストケースを作れることが経験的に知られている
+		// そこでJavaには簡易なテストケースを稼働コードのソースコード内に直接記述できるアサーションという仕組みを備えている
+		// このassertはJavaに標準装備されている文法でJUnitのassettメソッドとは関係がない
+		// 送金処理後に「残高は0以上のはず」だということを表している
+
+		// assert this.balance =&gt; 0 : &quot;残高の値が不正です&quot;;
+
+		// もし残高が0未満であった場合AssertionErrorが発生しJVMは強制停止する
+		// assertの評価式の後ろに「:」をつけてその後にエラーメッセージを書いておくとエラーメッセージも指定できる
+<span class="nc" id="L30">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>BankTest (2020/07/18 11:04:48)</div></body></html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ja"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>AccountTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">BankTest (2020/07/18 11:04:48)</a> &gt; <a href="../../index.html" class="el_group">JavaStudy-2-15</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">AccountTest.java</span></div><h1>AccountTest.java</h1><pre class="source lang-java linenums">// JUnitを使う際は、基本的には以下の2行をimoportしておけば問題ない
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+<span class="nc" id="L6">public class AccountTest {</span>
+	// JUnitを使ったテストケース
+	// JUnitのJARファイルの中にmainメソッドに相当するプログラム(JUnitCore)が準備されているため、mainメソッドは記述しなくてよい
+	// JUnitでは1つのテストクラスの中に、必ず複数のメソッドに分けてテストを記述していく
+	// 1つのテストメソッドには、1つのことを確認するようなテストを作ると良い
+	// テストメソッドには、@Testというアノテーションをつける、これを忘れるとテストメソッドであると認識されない
+	@Test public void instantiate() {
+<span class="nc" id="L13">		Account a = new Account(&quot;ミナト&quot;, 30000);</span>
+		// 値の確認にはif文ではなく、JUnitに用意されたメソッドを利用する
+		// assertEqualsメソッドは、assertEquals(期待値, 実際値)のように記述して、実際値が期待値と等価かを評価する
+<span class="nc" id="L16">		assertEquals(&quot;ミナト&quot;, a.owner);</span>
+<span class="nc" id="L17">		assertEquals(30000, a.balance);</span>
+		// 他にも
+		// assertSameメソッドは、assertSame(期待値, 実際値)のように記述して、実際値が期待値と等値かを評価する
+		// assertNullメソッドは、assertNull(実際値)のように記述して、実際値がnullかを評価する
+		// assertNotNullメソッドは、assertNotNull(実際値)のように記述して、実際値がnull以外かを評価する
+		// failメソッドは、fail()のように記述して、常に検証失敗にする
+		// といったようなメソッドなどがある
+		// これらのメソッドは、もし想定した値でない場合AssertionErrorを発生させる
+		// ちなみにassert ~ とは ~であるはずだという意味の英文
+		// テストコードは一眼でどのようなテストを行なっているかを把握できることが重要なため
+		// 基本的には非推奨である日本語のメソッドの命名も広く実践されている
+<span class="nc" id="L28">	}</span>
+
+	@Test void transfer() {
+
+<span class="nc" id="L32">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>BankTest (2020/07/18 11:04:48)</div></body></html>
